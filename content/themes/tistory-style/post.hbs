@@ -1,9 +1,9 @@
 {{!< default}}
 
 {{#post}}
-<article class="post-content {{post_class}} odyssey-layout">
+<article class="post-content {{post_class}} post-layout">
     {{!-- 1. 상단 헤더: 높이 350px 유지, 글씨 크기 축소 --}}
-    <header class="odyssey-header" 
+    <header class="post-hero" 
             style="position: relative; width: 100%; height: 350px; background-color: #111; display: flex !important; flex-direction: column !important; justify-content: flex-end !important; align-items: flex-start !important; text-align: left !important; overflow: hidden; border-radius: 4px; margin-bottom: 40px; box-sizing: border-box;">
         
         {{!-- 배경 이미지 --}}
@@ -12,30 +12,30 @@
         {{/if}}
         
         {{!-- 어두운 마스크 --}}
-        <div class="odyssey-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2;"></div>
+        <div class="post-hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2;"></div>
 
         {{!-- 텍스트 영역 --}}
-        <div class="odyssey-text-stack" style="position: relative; z-index: 3; padding: 40px; width: 100%; box-sizing: border-box; display: flex !important; flex-direction: column !important; align-items: flex-start !important;">
+        <div class="post-hero-content" style="position: relative; z-index: 3; padding: 40px; width: 100%; box-sizing: border-box; display: flex !important; flex-direction: column !important; align-items: flex-start !important;">
             
             {{!-- 1층: 카테고리 (14px 유지) --}}
-            <div class="odyssey-tag" id="post-category" style="font-size: 14px; margin-bottom: 15px; font-weight: 700; color: #fff; text-align: left !important;">
+            <div class="post-category" id="post-category" style="font-size: 14px; margin-bottom: 15px; font-weight: 700; color: #fff; text-align: left !important;">
                 {{#if primary_tag}}{{primary_tag.name}}{{else}}카테고리 없음{{/if}}
             </div>
             
             {{!-- 2층: 제목 (42px -> 32px로 축소) --}}
-            <h1 class="odyssey-title" style="font-size: 32px !important; font-weight: 700; margin: 0 0 15px 0 !important; line-height: 1.2; color: #fff; letter-spacing: -1px; word-break: keep-all; text-align: left !important;">
+            <h1 class="post-title" style="font-size: 32px !important; font-weight: 700; margin: 0 0 15px 0 !important; line-height: 1.2; color: #fff; letter-spacing: -1px; word-break: keep-all; text-align: left !important;">
                 {{title}}
             </h1>
             
             {{!-- 3층: 메타 정보 (14px -> 12px로 축소) --}}
-            <div class="odyssey-meta" style="font-size: 12px !important; color: rgba(255,255,255,0.7); font-weight: 300; text-align: left !important;">
+            <div class="post-meta" style="font-size: 12px !important; color: rgba(255,255,255,0.7); font-weight: 300; text-align: left !important;">
                 <span>{{authors}}</span> <span style="margin: 0 4px;">·</span> <span>{{date format="YYYY. MM. DD. HH:mm"}}</span>
             </div>
         </div>
     </header>
 
     {{!-- 2. 본문 영역 (17px -> 15px로 축소) --}}
-    <section class="odyssey-body" style="font-size: 14px !important; line-height: 1.7; color: #333; padding: 0 10px; text-align: left !important;">
+    <section class="post-body" style="font-size: 14px !important; line-height: 1.7; color: #333; padding: 0 10px; text-align: left !important;">
         {{content}}
     </section>
 </article>
@@ -50,23 +50,23 @@
 }
 
 /* 사이드바 프로필과 윗선 맞춤 (37px) */
-.odyssey-layout {
+.post-layout {
     margin-top: 37px !important; 
     padding-top: 0 !important;
 }
 
-.odyssey-title {
+.post-title {
     display: block !important;
     width: 100% !important;
 }
 
 /* 본문 내 이미지 가로폭 최적화 */
-.odyssey-body img {
+.post-body img {
     max-width: 100%;
     height: auto;
 }
 
-.odyssey-body strong, 
+.post-body strong, 
 .gh-content strong,
 .post-content strong {
     color: #ff7a67 !important; /* [수정포인트] 원하는 연한 빨강 색상 코드 */
