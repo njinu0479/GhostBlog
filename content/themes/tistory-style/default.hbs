@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>{{meta_title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{asset "css/tistory-style.css"}}">
+        {{ghost_head}}
+    </head>
+
+    <body class="{{body_class}}">
+        <header class="header">
+            <div class="header-inner">
+                <div class="logo"><a href="{{@site.url}}">{{@site.title}}</a></div>
+                <div class="nav-menu">{{navigation}}</div>
+            </div>
+        </header>
+
+        <div class="container">
+            <main class="main">
+                {{{body}}}
+            </main>
+            
+            <aside class="sidebar">
+                <div class="widget profile-widget" style="margin-top: 37px; border: 1px solid #eaeaea; padding: 40px 20px; text-align: center; margin-bottom: 10px; background: #fff; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px auto; overflow: hidden; border: 1px solid #eee;">
+                        {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;">
+                        {{else}}
+                        <div style="width: 100%; height: 100%; background: #f0f0f0;"></div>
+                        {{/if}}
+                    </div>
+                    <div style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 8px; letter-spacing: -0.5px;">
+                        {{@site.title}}
+                    </div>
+                    <div style="font-size: 14px; color: #777; line-height: 1.5; word-break: keep-all; padding: 0 10px;">
+                        {{@site.description}}
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Category</h3>
+                    <ul class="nav"> 
+                        <li class="tag-item-all">
+                            <a href="/" style="display: flex; justify-content: flex-start; align-items: center;">
+                                <span style="font-weight: 500; color: #333;">분류 전체보기</span>
+                                {{#get "posts" limit="1"}}
+                                <span class="post-count" style="font-size: 11px; color: #bbb;">({{pagination.total}})</span>
+                                {{/get}}
+                            </a>
+                        </li>
+                        {{#get "tags" limit="all" include="count.posts" order="name asc"}}
+                        {{#foreach tags}}
+                        <li class="tag-item">
+                            <a href="{{url}}" style="display: flex; justify-content: flex-start; align-items: center;">
+                                <span class="tag-name">{{name}}</span>
+                                <span class="post-count" style="font-size: 11px; color: #bbb;">({{count.posts}})</span>
+                            </a>
+                        </li>
+                        {{/foreach}}
+                        {{/get}}   
+                    </ul>
+                </div>
+
+                <hr style="border: none; border-top: 1px solid #f0f0f0; margin: 20px 0;">
+
+                <div class="widget" style="border: 1px solid #eaeaea; padding: 25px 20px; background: #fff; text-align: center;">
+                    <div style="font-size: 17px; font-weight: 700; color: #333; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px;">
+                        <span id="cal-prev" style="cursor: pointer; color: #999;">&lt;</span>
+                        <span id="cal-year-month" style="letter-spacing: 0.5px;"></span>
+                        <span id="cal-next" style="cursor: pointer; color: #999;">&gt;</span>
+                    </div>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <thead>
+                            <tr style="color: #aaa; font-size: 13px;">
+                                <th style="font-weight: normal; padding-bottom: 5px;">일</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">월</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">화</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">수</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">목</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">금</th>
+                                <th style="font-weight: normal; padding-bottom: 5px;">토</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cal-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="umami-stats-card" style="font-family: inherit !important; padding: 15px 0; border-top: 1px solid #f0f0f0; margin-top: 20px;">
+                    <div style="color: #2c2c2c; font-size: 13px; font-weight: 500; margin-bottom: 1px; font-family: inherit !important;">Total</div>
+                    <div id="umami-total" style="font-size: 32px; font-weight: 800; color: #333; line-height: 1; margin-bottom: 10px; font-family: inherit !important;">0</div>
+                    <div style="color: #7f8c8d; font-size: 12px; margin-bottom: 4px; font-family: inherit !important;">
+                        Today : <span id="umami-today" style="color: #555; font-family: inherit !important;">0</span>
+                    </div>
+                    <div style="color: #7f8c8d; font-size: 12px; font-family: inherit !important;">
+                        Yesterday : <span id="umami-yesterday" style="color: #555; font-family: inherit !important;">0</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    
+        {{ghost_foot}}
+        {{#get "posts" limit="all" fields="published_at"}}
+        <script id="ghost-post-dates" type="application/json">
+            [
+                {{#foreach posts}}
+                "{{date format="YYYY-MM-DD"}}"{{#unless @last}},{{/unless}}
+                {{/foreach}}
+            ]
+        </script>
+        {{/get}}
+        <script src="{{asset "js/tistory-style.js"}}"></script>
+    </body>
+</html>

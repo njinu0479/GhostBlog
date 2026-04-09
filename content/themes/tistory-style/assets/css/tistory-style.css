@@ -1,0 +1,234 @@
+@font-face {
+  font-family: "Paperozi";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Paperozi";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Paperozi", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: #fff;
+  height: 72px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo a {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3b3b3b;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu ul.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-menu ul.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.nav-menu ul.nav a:hover {
+  color: #000;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 50px auto;
+  display: flex;
+  gap: 80px;
+  padding: 0 20px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.widget {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.widget-title {
+  display: none;
+}
+
+.profile-box {
+  text-align: center;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f8f8f8;
+  margin: 0 auto 16px auto;
+  overflow: hidden;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.profile-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.widget ul.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.widget ul.nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.widget ul.nav a {
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  transition: all 0.2s;
+}
+
+.widget ul.nav a:hover {
+  color: #000;
+  font-weight: 700;
+  padding-left: 4px;
+}
+
+.post-count {
+  font-size: 9px;
+  color: #bbb;
+  margin-left: 4px;
+}
+
+.kg-width-wide {
+  max-width: 120%;
+  margin: 2rem -10%;
+}
+
+.kg-width-full {
+  max-width: 100vw;
+  margin: 2rem calc(50% - 50vw);
+}
+
+.kg-width-full img {
+  width: 100%;
+}
+
+.gh-card-image,
+.post-card-image,
+.post-image,
+.loop-item-image,
+.post-list-image img,
+[class*="card-image"],
+[class*="post-thumb"] {
+  width: 160px !important;
+  height: 100px !important;
+  min-width: 160px !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+
+.gh-card-content,
+.post-card-content,
+.post-item-content {
+  flex: 1;
+  margin-left: 20px !important;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}
+

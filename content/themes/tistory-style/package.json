@@ -1,0 +1,8 @@
+{
+  "name": "tistory-style",
+  "version": "1.0.0",
+  "engines": { "ghost": ">=5.0.0" },
+  "author": {
+    "name": "Jinwoo Nam"
+  }
+}

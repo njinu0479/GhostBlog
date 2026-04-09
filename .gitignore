@@ -28,9 +28,35 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Archives / exports
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
 # Editor / IDE
 .idea/
 .vscode/
 
-# Keep repository minimal: only core files
-content/
+# Direnv / asdf
+.envrc
+.tool-versions
+
+# OS
+.DS_Store
+
+# Ghost content: ignore runtime, keep theme source
+content/*
+!content/themes/
+content/themes/*
+!content/themes/tistory-style/
+!content/themes/tistory-style/**
+
+# Theme dev artifacts (keep theme source clean)
+content/themes/tistory-style/node_modules/
+content/themes/tistory-style/.cache/
+content/themes/tistory-style/dist/
+
+# Avoid committing host-specific symlinks (container paths)
+content/themes/casper
+content/themes/source
